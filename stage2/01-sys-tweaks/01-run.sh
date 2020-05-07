@@ -54,3 +54,5 @@ usermod --pass='*' root
 EOF
 
 rm -f "${ROOTFS_DIR}/etc/ssh/"ssh_host_*_key*
+
+chsh -s /usr/bin/zsh
