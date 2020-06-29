@@ -1,5 +1,4 @@
 git
-vim
 rfkill
 python
 python3
@@ -7,3 +6,4 @@ python3-numpy
 pypy
 python3-pandas
 python3-opencv
+python3-pip
