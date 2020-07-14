@@ -7,3 +7,10 @@ pypy
 python3-pandas
 python3-opencv
 python3-pip
+nodejs
+npm
+python3-notebook
+jupyter
+jupyter-core
+python-ipykernel
+vim
