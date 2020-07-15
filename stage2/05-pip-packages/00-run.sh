@@ -9,28 +9,6 @@ echo "${SUB_STAGE_DIR}"
 #
 export DOWNLOAD_DIR="${BASE_DIR}/src"
 echo "${DOWNLOAD_DIR}"
-## pyserial
-#wget -nc -nv -O pyserial.tar.gz \
-#    https://github.com/pyserial/pyserial/releases/download/v3.2.1/pyserial-3.2.1.tar.gz
-#
-## wrapt
-#wget -nc -nv -O wrapt.tar.gz \
-#    https://github.com/GrahamDumpleton/wrapt/archive/1.12.1.tar.gz
-#
-## aenum
-#wget -nc -nv -O aenum.tar.gz \
-#    https://bitbucket.org/stoneleaf/aenum/get/2.1.3.tar.gz
-#
-## python can
-#wget -nc -nv -O python-can.tar.gz \
-#    https://github.com/hardbyte/python-can/archive/3.3.3.tar.gz
-#
-## pymodi git clone
-#wget -nc -nv -O pymodi.tar.gz \
-#    https://github.com/LUXROBO/pymodi/archive/v0.9.0.tar.gz
-#
-#popd
-
 #
 # Extract and patch sources
 #
@@ -59,8 +37,7 @@ tar xzf "${DOWNLOAD_DIR}/python-can.tar.gz"
 mv python-can-* python-can
 echo "python can src downloaded"
 
-tar xzf "${DOWNLOAD_DIR}/pymodi.tar.gz"
-mv pymodi-* pymodi
+tar xf "${DOWNLOAD_DIR}/pymodi.tar.gz"
 echo "pymodi src downloaded"
 
 tar xf "${DOWNLOAD_DIR}/tensorflow.tar.gz"
@@ -116,7 +93,7 @@ echo "python-can installation done!"
 # pymodi
 on_chroot << EOF
 pushd /usr/src/pymodi
-python3 setup.py install
+python3 -m pip install *.whl 
 popd 
 EOF
 echo "pymodi installed"
@@ -126,7 +103,7 @@ echo "pymodi installed"
 
 on_chroot << EOF
 pushd /usr/src/tensorflow
-python3 -m pip install *
+python3 -m pip install *.whl
 popd 
 EOF
 echo "tensorflow installed"
